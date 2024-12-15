@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Avenir', sans-serif;
 }
 
 body {
@@ -112,21 +112,19 @@ transform: translate(-50%, -50%);
     position: relative;
     display: flex;
     margin-bottom: 10px;
+    height: 48px; /* Set a fixed height for the entire group */
 }
 
 .input-group-icon {
-    position: absolute;
-    left: 1px;
-    top: 1px;
-    bottom: 1px;
-    width: 40px;
+    width: 48px;
     background-color: #f5f5f5;
-    border-right: 1px solid #ddd;
+    border: 1px solid #ddd;
+    border-right: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    
     transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensure border is included in element size */
 }
 
 .input-group input,
@@ -134,23 +132,22 @@ transform: translate(-50%, -50%);
     width: 100%;
     padding: 12px 12px 12px 50px;
     border: 1px solid #ddd;
-    /* border-radius: 4px; */
     font-size: 14px;
-    height: 45px;
-    -webkit-appearance: none;
-    appearance: none;
+    background-color: white;
     transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensure border is included in element size */
+    height: 100%; /* Fill the parent height */
 }
+
 /* Hover state */
 .input-group:hover input,
 .input-group:hover select {
     border-color: #052048;
-    
 }
 
 .input-group:hover .input-group-icon {
     background-color: #052048;
-    border-right-color: #052048;
+    border-color: #052048; /* Changed from border-right-color */
     color: white;
 }
 
@@ -159,13 +156,12 @@ transform: translate(-50%, -50%);
 .input-group select:focus {
     outline: none;
     border-color: #052048;
-    box-shadow: 0 0 0 2px rgba(255, 0, 102, 0.1);
 }
 
 .input-group input:focus + .input-group-icon,
 .input-group select:focus + .input-group-icon {
     background-color: #052048;
-    border-right-color: #052048;
+    border-color: #052048;
     color: white;
 }
 
@@ -173,18 +169,15 @@ transform: translate(-50%, -50%);
 .input-group input:active,
 .input-group select:active {
     border-color: #052048;
+    
 }
 
 .input-group input:active + .input-group-icon,
 .input-group select:active + .input-group-icon {
     background-color: #052048;
-    border-right-color: #052048;
+    border-color: #052048;
     color: white;
 }
-
-
-
-
 
 .percentage-input {
     position: relative;
@@ -235,19 +228,29 @@ transform: translate(-50%, -50%);
 }
 
 .error-message {
-    color: #052048;    font-size: 12px;
-    margin-top: 5px;
-    display: none;
+    color: #052048;
+    font-size: 12px;
+    margin-top: 0;  /* Start with no margin */
+    max-height: 0;  /* Start with 0 height */
+    opacity: 0;     /* Start fully transparent */
+    overflow: hidden;
     padding-left: 5px;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;  /* Smooth transition for all properties */
 }
 
 .error .error-message {
-    display: block;
+    margin-top: 5px;
+    max-height: 50px;  /* Enough height to show message */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .error input,
 .error select {
-    border-color: #ff0066;}
+    border-color: #ff0066;
+    transition: border-color 0.3s ease;  /* Smooth border color change */
+}
 
 .consent-checkbox {
 margin: 20px 0;
