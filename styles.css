@@ -416,7 +416,7 @@ padding-bottom: 4px; /* Space for potential scrollbar */
 
 .feedback-message {
     position: fixed;
-    top: -100px;
+    bottom: -100px;
     right: 20px;
     padding: 15px 25px;
     border-radius: 5px;
