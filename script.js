@@ -132,9 +132,12 @@ const fieldTemplates = {
                     <span>DBS</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
                 </div>
-                <div class="select-option" data-value="scb">
+                <div class="select-option" data-value="hsbc">
                     <span>HSBC</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
+                </div>
+                <div class="select-option" data-value="dbs">
+                    <span>UOB</span>
                 </div>
                 <div class="select-option" data-value="anz">
                     <span>RHB</span>
@@ -148,7 +151,7 @@ const fieldTemplates = {
                     <span>OCBC</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
                 </div>
-                <div class="select-option" data-value="hsbc">
+                <div class="select-option" data-value="scb">
                     <span>SCB</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
                 </div>
@@ -169,6 +172,20 @@ const fieldTemplates = {
         </div>
         <div class="error-message">Please select your current financer</div>
     </div>
+    <div class="form-group">
+                <label class="form-label">Any Plan to Sell in the Next 1-3 Years? *</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="planToSell" value="yes" required> Yes
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="planToSell" value="no"> No
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="planToSell" value="not sure" checked> I'm not sure
+                    </label>
+                </div>
+            </div>
 </div>
     `,
     coupling: `
@@ -256,9 +273,12 @@ const fieldTemplates = {
                     <span>DBS</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
                 </div>
-                <div class="select-option" data-value="scb">
+                <div class="select-option" data-value="hsbc">
                     <span>HSBC</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
+                </div>
+                <div class="select-option" data-value="dbs">
+                    <span>UOB</span>
                 </div>
                 <div class="select-option" data-value="anz">
                     <span>RHB</span>
@@ -272,7 +292,7 @@ const fieldTemplates = {
                     <span>OCBC</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
                 </div>
-                <div class="select-option" data-value="hsbc">
+                <div class="select-option" data-value="scb">
                     <span>SCB</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
                 </div>
@@ -291,6 +311,7 @@ const fieldTemplates = {
                         </div>
                         <input type="hidden" name="currentBank" required>
                     </div>
+                    <div class="error-message">Please select your current financer</div>
                 </div>
             </div>
         </div>
@@ -328,13 +349,16 @@ const fieldTemplates = {
             </div>
 
             <div class="form-group">
-                <label class="form-label">Plan to Sell in Next 1-2 Years? *</label>
+                <label class="form-label">Any Plan to Sell in the Next 1-3 Years? *</label>
                 <div class="radio-group">
                     <label class="radio-option">
                         <input type="radio" name="planToSell" value="yes" required> Yes
                     </label>
                     <label class="radio-option">
                         <input type="radio" name="planToSell" value="no"> No
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="planToSell" value="not sure" checked> I'm not sure
                     </label>
                 </div>
             </div>
@@ -366,9 +390,12 @@ const fieldTemplates = {
                     <span>DBS</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
                 </div>
-                <div class="select-option" data-value="scb">
+                <div class="select-option" data-value="hsbc">
                     <span>HSBC</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
+                </div>
+                <div class="select-option" data-value="dbs">
+                    <span>UOB</span>
                 </div>
                 <div class="select-option" data-value="anz">
                     <span>RHB</span>
@@ -382,7 +409,7 @@ const fieldTemplates = {
                     <span>OCBC</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
                 </div>
-                <div class="select-option" data-value="hsbc">
+                <div class="select-option" data-value="scb">
                     <span>SCB</span>
                     <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
                 </div>
@@ -401,6 +428,7 @@ const fieldTemplates = {
                         </div>
                         <input type="hidden" name="currentBank" required>
                     </div>
+                    <div class="error-message">Please select your current financer</div>
                 </div>
             </div>
         </div>
@@ -433,7 +461,7 @@ const styles = `
 
 .feedback-message {
     position: fixed;
-    top: -100px;
+    bottom: -100px;
     right: 20px;
     padding: 15px 25px;
     border-radius: 5px;
@@ -457,7 +485,7 @@ const styles = `
 }`;
 
 // Initialize form and add necessary elements
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // Add styles and UI elements
     document.head.insertAdjacentHTML('beforeend', `<style>${styles}</style>`);
     document.body.insertAdjacentHTML('beforeend', `
@@ -475,25 +503,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const radioButton = document.querySelector(`input[name="loanType"][value="${loanType}"]`);
         if (radioButton) {
             radioButton.checked = true;
-            updateFormFields(loanType);
+            // First update the form fields
+            await updateFormFields(loanType);
+            // Then handle property type restrictions
+            handlePropertyTypeRestrictions(loanType, true);
+            // Finally initialize the custom select
+            if (['refinance', 'coupling', 'equity'].includes(loanType)) {
+                // Add a small delay to ensure DOM is ready
+                setTimeout(() => {
+                    initializeCustomSelect();
+                }, 100);
+            }
         }
-    }
-
-    // Initialize custom select if it's refinance type
-    if (loanType === 'refinance') {
-        initializeCustomSelect();
     }
 
     // Setup event listeners
     setupEventListeners();
 });
 
+
 function setupEventListeners() {
     // Loan type change
     document.querySelectorAll('input[name="loanType"]').forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            updateFormFields(e.target.value);
-            handlePropertyTypeRestrictions(e.target.value);
+        radio.addEventListener('change', async (e) => {
+            const newLoanType = e.target.value;
+            // First update form fields
+            await updateFormFields(newLoanType);
+            // Then handle property restrictions
+            handlePropertyTypeRestrictions(newLoanType);
+            // Finally reinitialize custom selects if needed
+            if (['refinance', 'coupling', 'equity'].includes(newLoanType)) {
+                setTimeout(() => {
+                    initializeCustomSelect();
+                }, 100);
+            }
         });
     });
 
@@ -716,26 +759,45 @@ function showFeedbackMessage(message, type) {
     const feedbackElement = document.querySelector('.feedback-message');
     feedbackElement.textContent = message;
     feedbackElement.className = 'feedback-message feedback-' + type;
-    feedbackElement.style.top = '20px';
+    feedbackElement.style.bottom = '20px';
     
     setTimeout(() => {
-        feedbackElement.style.top = '-100px';
+        feedbackElement.style.bottom = '-100px';
     }, 5000);
 }
 
 function updateFormFields(loanType) {
-    const dynamicFields = document.getElementById('dynamicFields');
-    dynamicFields.innerHTML = fieldTemplates[loanType] || '';
+    return new Promise((resolve) => {
+        const dynamicFields = document.getElementById('dynamicFields');
+        
+        // First, remove all existing custom select event listeners
+        const existingSelects = dynamicFields.querySelectorAll('.custom-select-container');
+        existingSelects.forEach(select => {
+            const trigger = select.querySelector('.select-trigger');
+            const options = select.querySelector('.select-options');
+            if (trigger) {
+                trigger.replaceWith(trigger.cloneNode(true));
+            }
+            if (options) {
+                options.replaceWith(options.cloneNode(true));
+            }
+        });
 
-    if (loanType === 'coupling' || loanType === 'equity') {
-        setupFullyPaidListeners();
-    }
+        // Update the content
+        dynamicFields.innerHTML = fieldTemplates[loanType] || '';
 
-    // Initialize custom select for all relevant loan types
-    if (['refinance', 'coupling', 'equity'].includes(loanType)) {
-        initializeCustomSelect();
-    }
+        if (loanType === 'coupling' || loanType === 'equity') {
+            setupFullyPaidListeners();
+        }
+
+        // Allow time for DOM update
+        setTimeout(() => {
+            resolve();
+        }, 50);
+    });
 }
+
+
 
 function setupFullyPaidListeners() {
     document.querySelectorAll('input[name="fullyPaid"]').forEach(radio => {
@@ -813,6 +875,12 @@ function handleUrlParams() {
     }
 }
 
+// Create a mapping object that can be used by both functions
+const LOAN_DISPLAY_NAMES = {
+    'coupling': 'Decoupling loan',
+    'equity': 'Equity loan'
+};
+
 // Updated function to handle property type restrictions
 function handlePropertyTypeRestrictions(loanType, isInitialLoad = false) {
     const hdbOption = document.querySelector('input[name="propertyType"][value="hdb"]');
@@ -827,7 +895,7 @@ function handlePropertyTypeRestrictions(loanType, isInitialLoad = false) {
         label.onclick = (e) => {
             if (hdbOption.disabled) {
                 e.preventDefault();
-                toast.show(`HDB is not available for ${loanType} loans`, 'error');
+                toast.show(`HDB is not available for ${LOAN_DISPLAY_NAMES[loanType]}`, 'error');
             }
         };
         
@@ -869,7 +937,7 @@ function validatePropertyTypeSelection(e) {
     if ((loanType === 'coupling' || loanType === 'equity') && e.target.value === 'hdb') {
         e.preventDefault();
         e.target.checked = false;
-        toast.show(`HDB is not available for ${loanType} loans`, 'error');
+        toast.show(`HDB is not available for ${LOAN_DISPLAY_NAMES[loanType]}`, 'error');
     }
 }
 
@@ -881,75 +949,83 @@ function isValidEmail(email) {
 function initializeCustomSelect() {
     const customSelects = document.querySelectorAll('.custom-select-container');
     
+    if (!customSelects.length) {
+        console.warn('No custom select elements found');
+        return;
+    }
+    
     customSelects.forEach(customSelect => {
-        // Get existing elements
+        // Remove any existing initialization
+        customSelect.dataset.initialized = 'false';
+        
         let trigger = customSelect.querySelector('.select-trigger');
         const options = customSelect.querySelector('.select-options');
         const hiddenInput = customSelect.querySelector('input[type="hidden"]');
         
-        // Create selected content structure if it doesn't exist
-        if (!trigger.querySelector('.selected-content')) {
-            // Clone existing trigger for clean slate
-            const newTrigger = trigger.cloneNode(true);
-            trigger.parentNode.replaceChild(newTrigger, trigger);
-            trigger = newTrigger;
-
-            // Create and structure new elements
-            const selectedContent = document.createElement('div');
-            selectedContent.className = 'selected-content';
-
-            const iconDiv = document.createElement('div');
-            iconDiv.className = 'input-group-icon';
-            iconDiv.innerHTML = '🏦';
-
-            const selectedText = document.createElement('span');
-            selectedText.className = 'selected-text';
-            selectedText.textContent = 'Select Bank';
-
-            const logoImg = document.createElement('img');
-            logoImg.className = 'selected-bank-logo';
-            logoImg.alt = '';
-
-            const arrowDiv = document.createElement('div');
-            arrowDiv.className = 'select-arrow';
-
-            // Assemble the structure
-            selectedContent.appendChild(selectedText);
-            selectedContent.appendChild(logoImg);
-
-            trigger.innerHTML = '';
-            trigger.appendChild(iconDiv);
-            trigger.appendChild(selectedContent);
-            trigger.appendChild(arrowDiv);
+        if (!trigger || !options || !hiddenInput) {
+            console.warn('Required elements missing for custom select');
+            return;
         }
+
+        // Always recreate the trigger structure
+        const newTrigger = document.createElement('div');
+        newTrigger.className = trigger.className;
+        
+        const selectedContent = document.createElement('div');
+        selectedContent.className = 'selected-content';
+
+        const iconDiv = document.createElement('div');
+        iconDiv.className = 'input-group-icon';
+        iconDiv.innerHTML = '🏦';
+
+        const selectedText = document.createElement('span');
+        selectedText.className = 'selected-text';
+        selectedText.textContent = 'Select Bank';
+
+        const logoImg = document.createElement('img');
+        logoImg.className = 'selected-bank-logo';
+        logoImg.alt = '';
+        logoImg.style.display = 'none'; // Hide by default
+
+        const arrowDiv = document.createElement('div');
+        arrowDiv.className = 'select-arrow';
+
+        selectedContent.appendChild(selectedText);
+        selectedContent.appendChild(logoImg);
+
+        newTrigger.appendChild(iconDiv);
+        newTrigger.appendChild(selectedContent);
+        newTrigger.appendChild(arrowDiv);
+
+        // Replace old trigger with new one
+        trigger.parentNode.replaceChild(newTrigger, trigger);
+        trigger = newTrigger;
+
+        // Clean up old event listeners
+        const newOptions = options.cloneNode(true);
+        options.parentNode.replaceChild(newOptions, options);
 
         // Handle trigger click
         trigger.addEventListener('click', (e) => {
             e.stopPropagation();
-            
-            // Close other open selects
             customSelects.forEach(other => {
                 if (other !== customSelect) {
                     other.classList.remove('active');
                 }
             });
-            
-            // Toggle current select
             customSelect.classList.toggle('active');
         });
 
         // Handle option selection
-        options.addEventListener('click', (e) => {
+        newOptions.addEventListener('click', (e) => {
             const option = e.target.closest('.select-option');
             if (option) {
                 const value = option.dataset.value;
                 const text = option.querySelector('span').textContent;
                 const logoSrc = option.querySelector('img')?.src;
 
-                // Update hidden input
                 hiddenInput.value = value;
 
-                // Update trigger display
                 const selectedContent = trigger.querySelector('.selected-content');
                 const selectedText = selectedContent.querySelector('.selected-text');
                 const selectedLogo = selectedContent.querySelector('.selected-bank-logo');
@@ -958,24 +1034,27 @@ function initializeCustomSelect() {
 
                 if (logoSrc && value) {
                     selectedLogo.src = logoSrc;
+                    selectedLogo.style.display = 'block';
                     customSelect.classList.add('has-selection');
                 } else {
                     selectedLogo.src = '';
+                    selectedLogo.style.display = 'none';
                     customSelect.classList.remove('has-selection');
                 }
 
-                // Close dropdown and remove error state if present
                 customSelect.classList.remove('active');
                 customSelect.classList.remove('error');
 
-                // Trigger change event on hidden input
                 const event = new Event('change', { bubbles: true });
                 hiddenInput.dispatchEvent(event);
             }
         });
+
+        // Mark as initialized
+        customSelect.dataset.initialized = 'true';
     });
 
-    // Close all selects when clicking outside
+    // Global event listeners for closing selects
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.custom-select-container')) {
             customSelects.forEach(select => {
@@ -984,7 +1063,6 @@ function initializeCustomSelect() {
         }
     });
 
-    // Close selects on escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             customSelects.forEach(select => {
@@ -993,3 +1071,44 @@ function initializeCustomSelect() {
         }
     });
 }
+
+// Add this to your existing JavaScript code
+window.addEventListener('load', function() {
+    let lastHeight = 0;
+    
+    function sendHeight() {
+        const currentHeight = document.documentElement.scrollHeight;
+        if (Math.abs(currentHeight - lastHeight) > 5) { // 5px threshold
+            lastHeight = currentHeight;
+            window.parent.postMessage({
+                type: 'setHeight',
+                height: currentHeight
+            }, '*');
+        }
+    }
+
+    // Send height on important events
+    const events = ['load', 'resize', 'input', 'change'];
+    events.forEach(event => {
+        window.addEventListener(event, sendHeight);
+    });
+
+    // Watch for DOM changes
+    const observer = new MutationObserver(sendHeight);
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        characterData: true
+    });
+
+    // Handle height requests from parent
+    window.addEventListener('message', function(event) {
+        if (event.data.type === 'requestHeight') {
+            sendHeight();
+        }
+    });
+
+    // Initial height send
+    sendHeight();
+});
