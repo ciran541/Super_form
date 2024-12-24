@@ -1,439 +1,442 @@
-// Form field templates for each loan type
-const fieldTemplates = {
-    newLoan: `
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Stage of Purchase *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="stagePurchase" value="bought" checked> Bought
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="stagePurchase" value="notBought"> Not Bought
-                    </label>
-                </div>
-                <div class="form-sublabel">Have you purchased your property?</div>
+const fieldTemplates={newLoan:`
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Stage of Purchase *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="stagePurchase" value="bought" checked> Bought
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="stagePurchase" value="notBought"> Not Bought
+                </label>
             </div>
+            <div class="form-sublabel">Have you purchased your property?</div>
+        </div>
 
-            <div class="form-group">
-                <label class="form-label">Fixed or Floating Rates *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="rateType" value="both" checked> Both
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="rateType" value="fixed"> Fixed
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="rateType" value="floating"> Floating
-                    </label>
-                </div>
-                <div class="form-sublabel">Do you prefer fixed or floating rates?</div>
+        <div class="form-group">
+            <label class="form-label">Fixed or Floating Rates *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="rateType" value="both" checked> Both
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rateType" value="fixed"> Fixed
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rateType" value="floating"> Floating
+                </label>
+            </div>
+            <div class="form-sublabel">Do you prefer fixed or floating rates?</div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Loan Amount *</label>
+            <div class="input-group">
+                <div class="input-group-icon">$</div>
+                <input type="number" name="loanAmount" placeholder="Enter loan amount" required>
+            </div>
+             <div class="error-message">Loan amount is required</div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Has Your Current Property Been Sold? *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="propertySold" value="yes" > Yes
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="propertySold" value="no" checked> No
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="propertySold" value="na"> Not Applicable
+                </label>
+            </div>
+        </div>
+    </div>
+`,refinance:`
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Fixed or Floating Rates *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="rateType" value="both" checked> Both
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rateType" value="fixed"> Fixed
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="rateType" value="floating"> Floating
+                </label>
+            </div>
+            <div class="form-sublabel">Do you prefer fixed or floating rates?</div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Existing Loan Amount *</label>
+            <div class="input-group">
+                <div class="input-group-icon">$</div>
+                <input type="number" name="existingLoanAmount" placeholder="Enter existing loan amount" required>
+            </div>
+             <div class="error-message">Existing Loan Amount is required</div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Is Your Current Bank the Original Lender? *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="originalLender" value="yes" checked> Yes
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="originalLender" value="no"> No
+                </label>
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Loan Amount *</label>
-                <div class="input-group">
-                    <div class="input-group-icon">$</div>
-                    <input type="number" name="loanAmount" placeholder="Enter loan amount" required>
-                </div>
-                 <div class="error-message">Loan amount is required</div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Has Your Current Property Been Sold? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="propertySold" value="yes" > Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="propertySold" value="no" checked> No
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="propertySold" value="na"> Not Applicable
-                    </label>
-                </div>
+        <div class="form-group">
+            <label class="form-label">Is Your Lock-in Period Over? *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="lockInPeriod" value="yes" checked> Yes
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="lockInPeriod" value="no"> No
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="lockInPeriod" value="notSure"> I'm Not Sure
+                </label>
             </div>
         </div>
-    `,
-    refinance: `
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Fixed or Floating Rates *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="rateType" value="both" checked> Both
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="rateType" value="fixed"> Fixed
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="rateType" value="floating"> Floating
-                    </label>
-                </div>
-                <div class="form-sublabel">Do you prefer fixed or floating rates?</div>
-            </div>
+    </div>
 
+    <div class="form-row">
+<div class="form-group">
+    <label class="form-label">Current Financer *</label>
+    <div class="custom-select-container">
+        <div class="select-trigger">
+            <div class="input-group-icon">🏦</div>
+            <span class="selected-text">Select Bank</span>
+            <div class="select-arrow"></div>
+        </div>
+        <div class="select-options">
+            <div class="select-option" data-value="">
+                <span>Select Bank</span>
+            </div>
+            <div class="select-option" data-value="dbs">
+                <span>DBS</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
+            </div>
+            <div class="select-option" data-value="hsbc">
+                <span>HSBC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
+            </div>
+            <div class="select-option" data-value="dbs">
+                <span>UOB</span>
+            </div>
+            <div class="select-option" data-value="anz">
+                <span>RHB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/WhatsApp_Image_2024-09-14_at_19.53.48_a53c55b2-removebg-preview.png" alt="RHB">
+            </div>
+            <div class="select-option" data-value="mb">
+                <span>MB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/maybank_logo-1.png" alt="MB">
+            </div>
+            <div class="select-option" data-value="ocbc">
+                <span>OCBC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
+            </div>
+            <div class="select-option" data-value="scb">
+                <span>SCB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
+            </div>
+            <div class="select-option" data-value="citi">
+                <span>CITI</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/citibank_logo.png" alt="CITI">
+            </div>
+            <div class="select-option" data-value="cimb">
+                <span>CIMB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/cimb.png" alt="CIMB">
+            </div>
+            <div class="select-option" data-value="boc">
+                <span>BOC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/boc.png" alt="BOC">
+            </div>
+            <div class="select-option" data-value="other">
+                <span>Others</span>
+            </div>
+        </div>
+        <input type="hidden" name="currentFinancer" required>
+    </div>
+    <div class="error-message">Please select your current financer</div>
+</div>
+<div class="form-group">
+            <label class="form-label">Any Plan to Sell in the Next 1-3 Years? *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="planToSell" value="yes" required> Yes
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="planToSell" value="no"> No
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="planToSell" value="not sure" checked> I'm not sure
+                </label>
+            </div>
+        </div>
+</div>
+`,coupling:`
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Property Share of Owner 1 (Buyer) *</label>
+            <div class="input-group percentage-input">
+                <div class="input-group-icon">%</div>
+                <input type="number" name="owner1Share" value="50" min="0" max="100" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Property Share of Owner 2 (Seller) *</label>
+            <div class="input-group percentage-input">
+                <div class="input-group-icon">%</div>
+                <input type="number" name="owner2Share" value="50" min="0" max="100" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">CPF Usage of Owner 1 (Buyer) *</label>
+            <div class="input-group">
+                <div class="input-group-icon">$</div>
+                <input type="number" name="owner1Cpf" placeholder="Enter CPF usage" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">CPF Usage of Owner 2 (Seller) *</label>
+            <div class="input-group">
+                <div class="input-group-icon">$</div>
+                <input type="number" name="owner2Cpf" placeholder="Enter CPF usage" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Rough Market Price of Property *</label>
+            <div class="input-group">
+                <div class="input-group-icon">$</div>
+                <input type="number" name="propertyPrice" placeholder="Enter property price" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Is Your Property Fully Paid? *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="fullyPaid" value="yes" checked> Yes
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="fullyPaid" value="no"> No
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="notFullyPaidFields" class="hidden">
+        <div class="form-row">
             <div class="form-group">
                 <label class="form-label">Existing Loan Amount *</label>
                 <div class="input-group">
                     <div class="input-group-icon">$</div>
-                    <input type="number" name="existingLoanAmount" placeholder="Enter existing loan amount" required>
-                </div>
-                 <div class="error-message">Existing Loan Amount is required</div>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Is Your Current Bank the Original Lender? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="originalLender" value="yes" checked> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="originalLender" value="no"> No
-                    </label>
+                    <input type="number" name="existingLoanAmount" placeholder="Enter existing loan amount">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="form-label">Is Your Lock-in Period Over? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="lockInPeriod" value="yes" checked> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="lockInPeriod" value="no"> No
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="lockInPeriod" value="notSure"> I'm Not Sure
-                    </label>
+                <label class="form-label">Current Bank *</label>
+                <div class="custom-select-container">
+                    <div class="select-trigger">
+                        <div class="input-group-icon">🏦</div>
+                        <span class="selected-text">Select Bank</span>
+                        <div class="select-arrow"></div>
+                    </div>
+                    <div class="select-options">
+                        <div class="select-option" data-value="">
+                            <span>Select Bank</span>
+                        </div>
+                        <div class="select-option" data-value="dbs">
+                <span>DBS</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
+            </div>
+            <div class="select-option" data-value="hsbc">
+                <span>HSBC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
+            </div>
+            <div class="select-option" data-value="dbs">
+                <span>UOB</span>
+            </div>
+            <div class="select-option" data-value="anz">
+                <span>RHB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/WhatsApp_Image_2024-09-14_at_19.53.48_a53c55b2-removebg-preview.png" alt="RHB">
+            </div>
+            <div class="select-option" data-value="mb">
+                <span>MB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/maybank_logo-1.png" alt="MB">
+            </div>
+            <div class="select-option" data-value="ocbc">
+                <span>OCBC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
+            </div>
+            <div class="select-option" data-value="scb">
+                <span>SCB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
+            </div>
+            <div class="select-option" data-value="citi">
+                <span>CITI</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/citibank_logo.png" alt="CITI">
+            </div>
+            <div class="select-option" data-value="cimb">
+                <span>CIMB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/cimb.png" alt="CIMB">
+            </div>
+            <div class="select-option" data-value="boc">
+                <span>BOC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/boc.png" alt="BOC">
+            </div>
+            <div class="select-option" data-value="other">
+                <span>Others</span>
+            </div>
+                    </div>
+                    <input type="hidden" name="currentBank" required>
                 </div>
+                <div class="error-message">Please select your current financer</div>
             </div>
         </div>
-
-        <div class="form-row">
-    <div class="form-group">
-        <label class="form-label">Current Financer *</label>
-        <div class="custom-select-container">
-            <div class="select-trigger">
-                <div class="input-group-icon">🏦</div>
-                <span class="selected-text">Select Bank</span>
-                <div class="select-arrow"></div>
-            </div>
-            <div class="select-options">
-                <div class="select-option" data-value="">
-                    <span>Select Bank</span>
-                </div>
-                <div class="select-option" data-value="dbs">
-                    <span>DBS</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
-                </div>
-                <div class="select-option" data-value="hsbc">
-                    <span>HSBC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
-                </div>
-                <div class="select-option" data-value="dbs">
-                    <span>UOB</span>
-                </div>
-                <div class="select-option" data-value="anz">
-                    <span>RHB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/WhatsApp_Image_2024-09-14_at_19.53.48_a53c55b2-removebg-preview.png" alt="RHB">
-                </div>
-                <div class="select-option" data-value="mb">
-                    <span>MB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/maybank_logo-1.png" alt="MB">
-                </div>
-                <div class="select-option" data-value="ocbc">
-                    <span>OCBC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
-                </div>
-                <div class="select-option" data-value="scb">
-                    <span>SCB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
-                </div>
-                <div class="select-option" data-value="citi">
-                    <span>CITI</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/citibank_logo.png" alt="CITI">
-                </div>
-                <div class="select-option" data-value="cimb">
-                    <span>CIMB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/cimb.png" alt="CIMB">
-                </div>
-                <div class="select-option" data-value="boc">
-                    <span>BOC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/boc.png" alt="BOC">
-                </div>
-            </div>
-            <input type="hidden" name="currentFinancer" required>
-        </div>
-        <div class="error-message">Please select your current financer</div>
     </div>
-    <div class="form-group">
-                <label class="form-label">Any Plan to Sell in the Next 1-3 Years? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="planToSell" value="yes" required> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="planToSell" value="no"> No
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="planToSell" value="not sure" checked> I'm not sure
-                    </label>
-                </div>
-            </div>
-</div>
-    `,
-    coupling: `
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Property Share of Owner 1 (Buyer) *</label>
-                <div class="input-group percentage-input">
-                    <div class="input-group-icon">%</div>
-                    <input type="number" name="owner1Share" value="50" min="0" max="100" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Property Share of Owner 2 (Seller) *</label>
-                <div class="input-group percentage-input">
-                    <div class="input-group-icon">%</div>
-                    <input type="number" name="owner2Share" value="50" min="0" max="100" required>
-                </div>
+`,equity:`
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Is Your Property Fully Paid? *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="fullyPaid" value="yes" checked> Yes
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="fullyPaid" value="no"> No
+                </label>
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">CPF Usage of Owner 1 (Buyer) *</label>
-                <div class="input-group">
-                    <div class="input-group-icon">$</div>
-                    <input type="number" name="owner1Cpf" placeholder="Enter CPF usage" required>
-                </div>
+        <div class="form-group">
+            <label class="form-label">Rough Market Price of Property *</label>
+            <div class="input-group">
+                <div class="input-group-icon">$</div>
+                <input type="number" name="propertyPrice" placeholder="Enter property price" required>
             </div>
+        </div>
+    </div>
 
-            <div class="form-group">
-                <label class="form-label">CPF Usage of Owner 2 (Seller) *</label>
-                <div class="input-group">
-                    <div class="input-group-icon">$</div>
-                    <input type="number" name="owner2Cpf" placeholder="Enter CPF usage" required>
-                </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label class="form-label">Total CPF Usage of All Borrowers *</label>
+            <div class="input-group">
+                <div class="input-group-icon">$</div>
+                <input type="number" name="totalCpfUsage" placeholder="Enter total CPF usage" required>
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Rough Market Price of Property *</label>
-                <div class="input-group">
-                    <div class="input-group-icon">$</div>
-                    <input type="number" name="propertyPrice" placeholder="Enter property price" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Is Your Property Fully Paid? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="fullyPaid" value="yes" checked> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="fullyPaid" value="no"> No
-                    </label>
-                </div>
+        <div class="form-group">
+            <label class="form-label">Any Plan to Sell in the Next 1-3 Years? *</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="planToSell" value="yes" required> Yes
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="planToSell" value="no"> No
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="planToSell" value="not sure" checked> I'm not sure
+                </label>
             </div>
         </div>
+    </div>
 
-        <div id="notFullyPaidFields" class="hidden">
-            <div class="form-row">
-                <div class="form-group">
-                    <label class="form-label">Existing Loan Amount *</label>
-                    <div class="input-group">
-                        <div class="input-group-icon">$</div>
-                        <input type="number" name="existingLoanAmount" placeholder="Enter existing loan amount">
+    <div id="equityNotFullyPaidFields" class="hidden">
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">Existing Loan Amount *</label>
+                <div class="input-group">
+                    <div class="input-group-icon">$</div>
+                    <input type="number" name="existingLoanAmount" placeholder="Enter existing loan amount">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Current Bank *</label>
+                <div class="custom-select-container">
+                    <div class="select-trigger">
+                        <div class="input-group-icon">🏦</div>
+                        <span class="selected-text">Select Bank</span>
+                        <div class="select-arrow"></div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Current Bank *</label>
-                    <div class="custom-select-container">
-                        <div class="select-trigger">
-                            <div class="input-group-icon">🏦</div>
-                            <span class="selected-text">Select Bank</span>
-                            <div class="select-arrow"></div>
+                    <div class="select-options">
+                        <div class="select-option" data-value="">
+                            <span>Select Bank</span>
                         </div>
-                        <div class="select-options">
-                            <div class="select-option" data-value="">
-                                <span>Select Bank</span>
-                            </div>
-                            <div class="select-option" data-value="dbs">
-                    <span>DBS</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
-                </div>
-                <div class="select-option" data-value="hsbc">
-                    <span>HSBC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
-                </div>
-                <div class="select-option" data-value="dbs">
-                    <span>UOB</span>
-                </div>
-                <div class="select-option" data-value="anz">
-                    <span>RHB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/WhatsApp_Image_2024-09-14_at_19.53.48_a53c55b2-removebg-preview.png" alt="RHB">
-                </div>
-                <div class="select-option" data-value="mb">
-                    <span>MB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/maybank_logo-1.png" alt="MB">
-                </div>
-                <div class="select-option" data-value="ocbc">
-                    <span>OCBC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
-                </div>
-                <div class="select-option" data-value="scb">
-                    <span>SCB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
-                </div>
-                <div class="select-option" data-value="citi">
-                    <span>CITI</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/citibank_logo.png" alt="CITI">
-                </div>
-                <div class="select-option" data-value="cimb">
-                    <span>CIMB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/cimb.png" alt="CIMB">
-                </div>
-                <div class="select-option" data-value="boc">
-                    <span>BOC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/boc.png" alt="BOC">
-                </div>
-                        </div>
-                        <input type="hidden" name="currentBank" required>
+                        <div class="select-option" data-value="dbs">
+                <span>DBS</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
+            </div>
+            <div class="select-option" data-value="hsbc">
+                <span>HSBC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
+            </div>
+            <div class="select-option" data-value="dbs">
+                <span>UOB</span>
+            </div>
+            <div class="select-option" data-value="anz">
+                <span>RHB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/WhatsApp_Image_2024-09-14_at_19.53.48_a53c55b2-removebg-preview.png" alt="RHB">
+            </div>
+            <div class="select-option" data-value="mb">
+                <span>MB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/maybank_logo-1.png" alt="MB">
+            </div>
+            <div class="select-option" data-value="ocbc">
+                <span>OCBC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
+            </div>
+            <div class="select-option" data-value="scb">
+                <span>SCB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
+            </div>
+            <div class="select-option" data-value="citi">
+                <span>CITI</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/citibank_logo.png" alt="CITI">
+            </div>
+            <div class="select-option" data-value="cimb">
+                <span>CIMB</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/cimb.png" alt="CIMB">
+            </div>
+            <div class="select-option" data-value="boc">
+                <span>BOC</span>
+                <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/boc.png" alt="BOC">
+            </div>
+            <div class="select-option" data-value="other">
+                <span>Others</span>
+            </div>
                     </div>
-                    <div class="error-message">Please select your current financer</div>
+                    <input type="hidden" name="currentBank" required>
                 </div>
+                <div class="error-message">Please select your current financer</div>
             </div>
         </div>
-    `,
-    equity: `
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Is Your Property Fully Paid? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="fullyPaid" value="yes" checked> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="fullyPaid" value="no"> No
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Rough Market Price of Property *</label>
-                <div class="input-group">
-                    <div class="input-group-icon">$</div>
-                    <input type="number" name="propertyPrice" placeholder="Enter property price" required>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label class="form-label">Total CPF Usage of All Borrowers *</label>
-                <div class="input-group">
-                    <div class="input-group-icon">$</div>
-                    <input type="number" name="totalCpfUsage" placeholder="Enter total CPF usage" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Any Plan to Sell in the Next 1-3 Years? *</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="planToSell" value="yes" required> Yes
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="planToSell" value="no"> No
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="planToSell" value="not sure" checked> I'm not sure
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div id="equityNotFullyPaidFields" class="hidden">
-            <div class="form-row">
-                <div class="form-group">
-                    <label class="form-label">Existing Loan Amount *</label>
-                    <div class="input-group">
-                        <div class="input-group-icon">$</div>
-                        <input type="number" name="existingLoanAmount" placeholder="Enter existing loan amount">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Current Bank *</label>
-                    <div class="custom-select-container">
-                        <div class="select-trigger">
-                            <div class="input-group-icon">🏦</div>
-                            <span class="selected-text">Select Bank</span>
-                            <div class="select-arrow"></div>
-                        </div>
-                        <div class="select-options">
-                            <div class="select-option" data-value="">
-                                <span>Select Bank</span>
-                            </div>
-                            <div class="select-option" data-value="dbs">
-                    <span>DBS</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/DBS-Bank_idfxgaEFeS_1.png" alt="DBS">
-                </div>
-                <div class="select-option" data-value="hsbc">
-                    <span>HSBC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/hsbc_or.png" alt="HSBC">
-                </div>
-                <div class="select-option" data-value="dbs">
-                    <span>UOB</span>
-                </div>
-                <div class="select-option" data-value="anz">
-                    <span>RHB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/WhatsApp_Image_2024-09-14_at_19.53.48_a53c55b2-removebg-preview.png" alt="RHB">
-                </div>
-                <div class="select-option" data-value="mb">
-                    <span>MB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/maybank_logo-1.png" alt="MB">
-                </div>
-                <div class="select-option" data-value="ocbc">
-                    <span>OCBC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/ocbc-bank-seeklogo.png" alt="OCBC">
-                </div>
-                <div class="select-option" data-value="scb">
-                    <span>SCB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/scb.png" alt="SCB">
-                </div>
-                <div class="select-option" data-value="citi">
-                    <span>CITI</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/citibank_logo.png" alt="CITI">
-                </div>
-                <div class="select-option" data-value="cimb">
-                    <span>CIMB</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/cimb.png" alt="CIMB">
-                </div>
-                <div class="select-option" data-value="boc">
-                    <span>BOC</span>
-                    <img src="https://sgcondonewlaunch.com/wp-content/uploads/2024/12/boc.png" alt="BOC">
-                </div>
-                        </div>
-                        <input type="hidden" name="currentBank" required>
-                    </div>
-                    <div class="error-message">Please select your current financer</div>
-                </div>
-            </div>
-        </div>
-    `
-};
+    </div>
+`};
 
 // Styles for loading and feedback
 const styles = `
@@ -483,6 +486,85 @@ const styles = `
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }`;
+
+function setupPercentageValidation() {
+    const owner1ShareInput = document.querySelector('input[name="owner1Share"]');
+    const owner2ShareInput = document.querySelector('input[name="owner2Share"]');
+    
+    if (!owner1ShareInput || !owner2ShareInput) return;
+
+    const validateInput = (input) => {
+        // Get the current value
+        let value = parseInt(input.value) || 0;
+        
+        // Enforce limits
+        if (value > 99) value = 99;
+        if (value < 1 && input.value !== '') value = 1;
+        
+        return value;
+    };
+
+    const updateShares = (currentInput, otherInput) => {
+        let value = validateInput(currentInput);
+        
+        // Only update if there's a value
+        if (currentInput.value !== '') {
+            currentInput.value = value;
+            otherInput.value = 100 - value;
+        }
+    };
+
+    // Remove any existing event listeners by cloning and replacing
+    const newOwner1Input = owner1ShareInput.cloneNode(true);
+    const newOwner2Input = owner2ShareInput.cloneNode(true);
+    
+    owner1ShareInput.parentNode.replaceChild(newOwner1Input, owner1ShareInput);
+    owner2ShareInput.parentNode.replaceChild(newOwner2Input, owner2ShareInput);
+
+    // Add input validation and update for both fields
+    newOwner1Input.addEventListener('input', (e) => {
+        // Prevent non-numeric input
+        if (!/^\d*$/.test(e.target.value)) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '');
+        }
+        // Handle empty or invalid input
+        if (e.target.value === '' || parseInt(e.target.value) === 0) {
+            newOwner2Input.value = '';
+            return;
+        }
+        updateShares(newOwner1Input, newOwner2Input);
+    });
+
+    newOwner2Input.addEventListener('input', (e) => {
+        // Prevent non-numeric input
+        if (!/^\d*$/.test(e.target.value)) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '');
+        }
+        // Handle empty or invalid input
+        if (e.target.value === '' || parseInt(e.target.value) === 0) {
+            newOwner1Input.value = '';
+            return;
+        }
+        updateShares(newOwner2Input, newOwner1Input);
+    });
+
+    // Add blur handlers to ensure valid values when leaving fields
+    newOwner1Input.addEventListener('blur', () => {
+        if (newOwner1Input.value === '') {
+            newOwner1Input.value = '50';
+            newOwner2Input.value = '50';
+        }
+        updateShares(newOwner1Input, newOwner2Input);
+    });
+
+    newOwner2Input.addEventListener('blur', () => {
+        if (newOwner2Input.value === '') {
+            newOwner1Input.value = '50';
+            newOwner2Input.value = '50';
+        }
+        updateShares(newOwner2Input, newOwner1Input);
+    });
+}
 
 // Initialize form and add necessary elements
 document.addEventListener('DOMContentLoaded', async () => {
@@ -560,6 +642,12 @@ function setupEventListeners() {
     const form = document.getElementById('loanForm');
     if (form) {
         form.addEventListener('submit', handleSubmit);
+    }
+
+    // Add initial setup for percentage validation if we're on coupling template
+    const loanTypeRadio = document.querySelector('input[name="loanType"][value="coupling"]:checked');
+    if (loanTypeRadio) {
+        setupPercentageValidation();
     }
 }
 
@@ -786,7 +874,10 @@ function updateFormFields(loanType) {
         // Update the content
         dynamicFields.innerHTML = fieldTemplates[loanType] || '';
 
-        if (loanType === 'coupling' || loanType === 'equity') {
+        if (loanType === 'coupling') {
+            setupFullyPaidListeners();
+            setupPercentageValidation(); // Add this line
+        } else if (loanType === 'equity') {
             setupFullyPaidListeners();
         }
 
