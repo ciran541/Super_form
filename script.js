@@ -757,9 +757,24 @@ async function handleSubmit(e) {
     form.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
     form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
     
-    // Validate all required fields
+    // Check if property is fully paid
+    const isFullyPaid = form.querySelector('input[name="fullyPaid"]:checked')?.value === 'yes';
+    
+    // Get selected loan type
+    const selectedLoanType = form.querySelector('input[name="loanType"]:checked').value;
+    
+    // Validate visible required fields
     form.querySelectorAll('[required]').forEach(field => {
-        if (!validateField(field)) {
+        const fieldContainer = field.closest('.form-group');
+        const isHidden = fieldContainer?.closest('.hidden') !== null;
+        
+        // Skip validation for hidden fields when property is fully paid
+        if (isHidden && isFullyPaid) {
+            return;
+        }
+        
+        // Validate visible fields
+        if (!isHidden && !validateField(field)) {
             isValid = false;
         }
     });
@@ -772,9 +787,6 @@ async function handleSubmit(e) {
             const formData = new FormData(form);
             const data = {};
             
-            // Get selected loan type
-            const selectedLoanType = form.querySelector('input[name="loanType"]:checked').value;
-            
             // Initialize all possible fields with empty values
             [...ALL_POSSIBLE_FIELDS.commonFields, 
              ...ALL_POSSIBLE_FIELDS.newLoan,
@@ -785,8 +797,9 @@ async function handleSubmit(e) {
                 data[field] = '';
             });
 
-            // Update with actual form values
+            // Process form data
             formData.forEach((value, key) => {
+                // Handle radio buttons
                 if (form.querySelector(`input[type="radio"][name="${key}"]`)) {
                     const checkedRadio = form.querySelector(`input[type="radio"][name="${key}"]:checked`);
                     if (checkedRadio) {
@@ -796,6 +809,15 @@ async function handleSubmit(e) {
                     data[key] = value;
                 }
             });
+
+            // Handle hidden fields when property is fully paid
+            if (isFullyPaid && ['coupling', 'equity'].includes(selectedLoanType)) {
+                // Set default values for hidden fields
+                const hiddenFields = ['existingLoanAmount', 'currentBank', 'currentFinancer'];
+                hiddenFields.forEach(field => {
+                    data[field] = 'N/A';
+                });
+            }
 
             // Add timestamp
             data.timestamp = new Date().toISOString();
@@ -816,10 +838,10 @@ async function handleSubmit(e) {
 
             showFeedbackMessage('Form submitted successfully!', 'success');
             
-            // Reset form and reinitialize based on URL parameter
+            // Reset form
             form.reset();
             
-            // Get the loan type from URL parameter
+            // Reset form based on URL parameter
             const urlParams = new URLSearchParams(window.location.search);
             const loanType = urlParams.get('enquiry');
             
@@ -827,11 +849,11 @@ async function handleSubmit(e) {
                 const radioButton = document.querySelector(`input[name="loanType"][value="${loanType}"]`);
                 if (radioButton) {
                     radioButton.checked = true;
-                    updateFormFields(loanType);
+                    await updateFormFields(loanType);
                     handlePropertyTypeRestrictions(loanType);
                 }
             } else {
-                updateFormFields('');
+                await updateFormFields('');
             }
             
         } catch (error) {
@@ -839,6 +861,12 @@ async function handleSubmit(e) {
             showFeedbackMessage('Error submitting form. Please try again.', 'error');
         } finally {
             loadingSpinner.style.display = 'none';
+        }
+    } else {
+        // Scroll to the first error
+        const firstError = form.querySelector('.error');
+        if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 }
@@ -895,17 +923,44 @@ function setupFullyPaidListeners() {
         radio.addEventListener('change', (e) => {
             const notFullyPaidFields = document.getElementById('notFullyPaidFields');
             const equityNotFullyPaidFields = document.getElementById('equityNotFullyPaidFields');
+            const isFullyPaid = e.target.value === 'yes';
             
+            // Handle notFullyPaidFields (coupling)
             if (notFullyPaidFields) {
-                notFullyPaidFields.classList.toggle('hidden', e.target.value === 'yes');
+                notFullyPaidFields.classList.toggle('hidden', isFullyPaid);
+                // Toggle required attribute on inputs
+                notFullyPaidFields.querySelectorAll('input').forEach(input => {
+                    input.required = !isFullyPaid;
+                    // Clear values when hidden
+                    if (isFullyPaid) {
+                        if (input.type === 'hidden') {
+                            input.value = 'N/A';  // Set a default value for hidden inputs
+                        } else {
+                            input.value = '';
+                        }
+                    }
+                });
             }
+            
+            // Handle equityNotFullyPaidFields (equity)
             if (equityNotFullyPaidFields) {
-                equityNotFullyPaidFields.classList.toggle('hidden', e.target.value === 'yes');
+                equityNotFullyPaidFields.classList.toggle('hidden', isFullyPaid);
+                // Toggle required attribute on inputs
+                equityNotFullyPaidFields.querySelectorAll('input').forEach(input => {
+                    input.required = !isFullyPaid;
+                    // Clear values when hidden
+                    if (isFullyPaid) {
+                        if (input.type === 'hidden') {
+                            input.value = 'N/A';  // Set a default value for hidden inputs
+                        } else {
+                            input.value = '';
+                        }
+                    }
+                });
             }
         });
     });
 }
-
 // Toast notification functionality
 class ToastNotification {
     constructor() {
